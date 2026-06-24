@@ -1,26 +1,121 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; }
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  color-scheme: light;
+
+  /* Ink — warm neutral scale */
+  --ink-900: #0C1512;
+  --ink-800: #15201C;
+  --ink-700: #243029;
+  --ink-600: #3A4640;
+  --ink-500: #5A665F;
+  --ink-400: #7C887F;
+  --ink-300: #A7B0A8;
+  --ink-200: #CDD3CC;
+  --ink-100: #E6E9E4;
+  --ink-50:  #F4F5F1;
+  --paper:   #FBFBF7;
+  --white:   #FFFFFF;
+
+  /* Lake brand — teal-green */
+  --lake-900: #06322B;
+  --lake-800: #083E35;
+  --lake-700: #0A4D43;
+  --lake-600: #0C6052;
+  --lake-500: #12806C;
+  --lake-400: #2EA189;
+  --lake-300: #7CC9B6;
+  --lake-200: #B0E0D2;
+  --lake-100: #D6EFE7;
+  --lake-50:  #EDF7F3;
+
+  /* Coral accent */
+  --coral-700: #C5371F;
+  --coral-600: #E8442A;
+  --coral-500: #FF5A3C;
+  --coral-400: #FF7A60;
+  --coral-200: #FFC4B6;
+  --coral-100: #FFE3DC;
+
+  /* Status */
+  --positive-600: #157A4E;
+  --positive-500: #1A8F5C;
+  --positive-100: #DBF1E5;
+
+  /* Gradients */
+  --grad-lake: linear-gradient(145deg, #0C6052 0%, #06322B 100%);
+  --grad-dusk: linear-gradient(145deg, #12806C 0%, #0A4D43 60%, #06322B 100%);
+  --grad-mist: linear-gradient(180deg, #FBFBF7 0%, #EDF7F3 100%);
+
+  /* Semantic aliases */
+  --bg-app: var(--paper);
+  --surface-card: var(--white);
+  --surface-sunken: var(--ink-50);
+  --surface-inverse: var(--ink-900);
+
+  --text-strong: var(--ink-900);
+  --text-body: var(--ink-700);
+  --text-muted: var(--ink-400);
+  --text-on-dark: #EDF1EC;
+  --text-on-dark-muted: #9DB0A8;
+
+  --border-subtle: var(--ink-100);
+  --border-default: var(--ink-200);
+  --border-strong: var(--ink-300);
+
+  --brand: var(--lake-700);
+  --brand-hover: var(--lake-600);
+  --on-brand: #EDF7F3;
+
+  --accent: var(--coral-500);
+  --accent-hover: var(--coral-600);
+  --on-accent: #FFFFFF;
+
+  --focus-ring: var(--lake-400);
+
+  /* Typography */
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-sans: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Spacing — 4px base grid */
+  --space-1: 4px;   --space-2: 8px;   --space-3: 12px;  --space-4: 16px;
+  --space-5: 20px;  --space-6: 24px;  --space-8: 32px;  --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+
+  /* Radii — generous, premium */
+  --radius-xs: 6px;  --radius-sm: 10px; --radius-md: 14px;
+  --radius-lg: 20px; --radius-xl: 28px; --radius-2xl: 36px; --radius-pill: 999px;
+
+  /* Shadows — soft, low-spread, warm */
+  --shadow-xs: 0 1px 2px rgba(12,21,18,.06);
+  --shadow-sm: 0 2px 6px rgba(12,21,18,.07), 0 1px 2px rgba(12,21,18,.05);
+  --shadow-md: 0 8px 24px rgba(12,21,18,.08), 0 2px 6px rgba(12,21,18,.05);
+  --shadow-lg: 0 18px 48px rgba(12,21,18,.12), 0 6px 16px rgba(12,21,18,.06);
+  --shadow-xl: 0 32px 80px rgba(6,50,43,.20), 0 10px 28px rgba(12,21,18,.10);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--paper); font-family: var(--font-sans); }
+section[id] { scroll-margin-top: 84px; }
+a { color: inherit; }
+button { font-family: inherit; }
+
+::selection { background: var(--lake-200); color: var(--ink-900); }
+
+@keyframes lkFloat {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@keyframes lkRing {
+  from { stroke-dashoffset: 314; }
+  to   { stroke-dashoffset: 56; }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@keyframes lkRise {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
 }
