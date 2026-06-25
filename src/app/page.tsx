@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import {
   Check,
@@ -665,20 +666,30 @@ const DICT = {
       cols: [
         {
           head: "Produto",
-          items: ["Recursos", "Segurança", "Preços", "Roadmap"] as const,
+          items: [
+            { label: "Recursos", href: "/#recursos" },
+            { label: "Segurança", href: "/#seguranca" },
+            { label: "Preços", href: "/#precos" },
+            { label: "Roadmap", href: "/roadmap" },
+          ],
         },
         {
           head: "Empresa",
-          items: ["Sobre", "Blog", "Carreiras", "Imprensa"] as const,
+          items: [
+            { label: "Sobre", href: "/sobre" },
+            { label: "Blog", href: "/blog" },
+            { label: "Carreiras", href: "/carreiras" },
+            { label: "Imprensa", href: "/imprensa" },
+          ],
         },
         {
           head: "Suporte",
           items: [
-            "Central de ajuda",
-            "Termos de uso",
-            "Privacidade",
-            "Contato",
-          ] as const,
+            { label: "Central de ajuda", href: "/ajuda" },
+            { label: "Termos de uso", href: "/termos" },
+            { label: "Privacidade", href: "/privacidade" },
+            { label: "Contato", href: "/contato" },
+          ],
         },
       ],
     },
@@ -1082,15 +1093,30 @@ const DICT = {
       cols: [
         {
           head: "Product",
-          items: ["Features", "Security", "Pricing", "Roadmap"] as const,
+          items: [
+            { label: "Features", href: "/#recursos" },
+            { label: "Security", href: "/#seguranca" },
+            { label: "Pricing", href: "/#precos" },
+            { label: "Roadmap", href: "/roadmap" },
+          ],
         },
         {
           head: "Company",
-          items: ["About", "Blog", "Careers", "Press"] as const,
+          items: [
+            { label: "About", href: "/sobre" },
+            { label: "Blog", href: "/blog" },
+            { label: "Careers", href: "/carreiras" },
+            { label: "Press", href: "/imprensa" },
+          ],
         },
         {
           head: "Support",
-          items: ["Help center", "Terms of use", "Privacy", "Contact"] as const,
+          items: [
+            { label: "Help center", href: "/ajuda" },
+            { label: "Terms of use", href: "/termos" },
+            { label: "Privacy", href: "/privacidade" },
+            { label: "Contact", href: "/contato" },
+          ],
         },
       ],
     },
@@ -3709,10 +3735,14 @@ export default function Page() {
                 {t.footer.legal}
               </p>
               <div style={{ display: "flex", gap: 10 }}>
-                {(["linkedin", "instagram", "twitter"] as const).map((name) => (
-                  <a
-                    key={name}
-                    href="#"
+                {[
+                  { name: "linkedin", href: "/sobre" },
+                  { name: "instagram", href: "/blog" },
+                  { name: "twitter", href: "/imprensa" },
+                ].map((social) => (
+                  <Link
+                    key={social.name}
+                    href={social.href}
                     style={{
                       width: 38,
                       height: 38,
@@ -3725,8 +3755,8 @@ export default function Page() {
                       textDecoration: "none",
                     }}
                   >
-                    <Icon name={name} size={18} />
-                  </a>
+                    <Icon name={social.name} size={18} />
+                  </Link>
                 ))}
               </div>
             </div>
@@ -3744,10 +3774,10 @@ export default function Page() {
                 >
                   {col.head}
                 </div>
-                {[...col.items].map((link, j) => (
-                  <a
+                {col.items.map((link, j) => (
+                  <Link
                     key={j}
-                    href="#"
+                    href={link.href}
                     style={{
                       display: "block",
                       color: "var(--text-on-dark-muted)",
@@ -3756,8 +3786,8 @@ export default function Page() {
                       marginBottom: 11,
                     }}
                   >
-                    {link}
-                  </a>
+                    {link.label}
+                  </Link>
                 ))}
               </div>
             ))}
