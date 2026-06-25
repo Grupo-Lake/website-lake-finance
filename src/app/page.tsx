@@ -3093,12 +3093,14 @@ export default function Page() {
           {t.social.stats.map((label, i) => (
             <div key={i} style={{ textAlign: "center" }}>
               <div
+                className="lk-stats-num"
                 style={{
                   fontFamily: "var(--font-mono)",
                   fontVariantNumeric: "tabular-nums",
                   fontSize: 42,
                   fontWeight: 500,
                   letterSpacing: "-0.01em",
+                  whiteSpace: "nowrap",
                 }}
               >
                 {fmtStat(statVals[i], STATS_META[i], lang)}

@@ -139,8 +139,9 @@ button { font-family: inherit; }
 }
 .lk-hamburger span {
   display: block;
+  width: 100%;
   height: 2px;
-  background: var(--text-muted);
+  background: var(--text-strong);
   border-radius: 2px;
 }
 .lk-hero-mobile-card { display: none; }
@@ -175,6 +176,8 @@ button { font-family: inherit; }
   .lk-grid-3 { grid-template-columns: 1fr !important; }
   .lk-grid-2 { grid-template-columns: 1fr !important; }
   .lk-stats-grid { grid-template-columns: 1fr 1fr !important; padding: 44px 22px !important; gap: 24px 18px !important; }
+  .lk-stats-grid > div { min-width: 0; overflow: hidden; }
+  .lk-stats-num { font-size: 28px !important; }
   .lk-feature-panel { grid-template-columns: 1fr !important; }
   .lk-feature-screen { display: none !important; }
   .lk-copilot-grid { grid-template-columns: 1fr !important; }
