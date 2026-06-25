@@ -146,8 +146,12 @@ button { font-family: inherit; }
 }
 .lk-hero-mobile-card { display: none; }
 
+/* ── Legal pages ───────────────────────────────────────────────────── */
+.lk-legal-sidebar { display: block; }
+
 /* ── Mobile responsive ─────────────────────────────────────────────── */
 @media (max-width: 767px) {
+  .lk-legal-sidebar { display: none !important; }
   /* Nav */
   .lk-nav-links   { display: none !important; }
   .lk-nav-lang    { display: none !important; }
