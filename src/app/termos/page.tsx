@@ -177,7 +177,7 @@ export default function TermosPage() {
 
       {/* Content */}
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "56px 40px 80px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: 60, alignItems: "start" }}>
+        <div className="lk-legal-layout" style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: 60, alignItems: "start" }}>
 
           {/* Sidebar TOC */}
           <aside style={{ position: "sticky", top: 84 }} className="lk-legal-sidebar">

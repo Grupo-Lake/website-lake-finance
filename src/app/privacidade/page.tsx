@@ -277,10 +277,10 @@ export default function PrivacidadePage() {
 
       {/* Content */}
       <div style={{ maxWidth: 1100, margin: "0 auto", padding: "56px 40px 80px" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: 60, alignItems: "start" }}>
+        <div className="lk-legal-layout" style={{ display: "grid", gridTemplateColumns: "220px 1fr", gap: 60, alignItems: "start" }}>
 
           {/* TOC */}
-          <aside style={{ position: "sticky", top: 84 }}>
+          <aside className="lk-legal-sidebar" style={{ position: "sticky", top: 84 }}>
             <nav style={{ display: "flex", flexDirection: "column", gap: 4 }}>
               {t.toc.map((item, i) => (
                 <a key={i} href={`#priv-${i}`} style={{ fontSize: 13.5, color: "var(--text-muted)", textDecoration: "none", padding: "5px 10px", borderRadius: 8, lineHeight: 1.4, display: "block" }}>

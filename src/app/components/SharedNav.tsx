@@ -187,6 +187,7 @@ export default function SharedNav({ lang, setLang }: SharedNavProps) {
         }}
       >
         <div
+          className="lk-nav-inner"
           style={{
             maxWidth: 1200,
             margin: "0 auto",
