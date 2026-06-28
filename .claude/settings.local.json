@@ -36,7 +36,8 @@
       "Read(//c/Users/jeffe/Downloads/grupo-lake/lake-finance/docs/software-engineer/**)",
       "PowerShell(head -30)",
       "Bash(dir)",
-      "Bash(npm run *)"
+      "Bash(npm run *)",
+      "PowerShell(taskkill /PID 31012 /F)"
     ]
   }
 }
