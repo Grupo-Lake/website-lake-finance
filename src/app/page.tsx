@@ -2516,6 +2516,10 @@ export default function Page() {
             </div>
             <div
               ref={chatRef}
+              role="log"
+              aria-live="polite"
+              aria-label="Conversa com o Copilot"
+              aria-relevant="additions"
               style={{
                 padding: "22px 20px",
                 display: "flex",
@@ -2570,11 +2574,16 @@ export default function Page() {
                 background: "var(--surface-card)",
               }}
             >
+              <label htmlFor="copilot-input" className="sr-only">
+                Mensagem para o Copilot
+              </label>
               <input
+                id="copilot-input"
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && sendFree()}
                 placeholder={t.copilot.placeholder}
+                aria-label="Mensagem para o Copilot"
                 style={{
                   flex: 1,
                   border: "1px solid var(--border-default)",
