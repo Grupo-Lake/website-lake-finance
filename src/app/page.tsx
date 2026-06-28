@@ -1157,6 +1157,10 @@ export default function Page() {
   const t = DICT[lang];
   const af = t.features.items[activeFeature];
 
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   // Stats counter animation on scroll
   const animateStats = useCallback(() => {
     if (statsDone.current) return;

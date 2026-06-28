@@ -91,6 +91,10 @@ export default function ContatoPage() {
 
   const t = DICT[lang];
 
+  React.useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
