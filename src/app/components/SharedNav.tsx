@@ -71,6 +71,7 @@ export default function SharedNav({ lang, setLang }: SharedNavProps) {
     <>
       {menuOpen && (
         <div
+          id="mobile-menu-nav"
           style={{
             position: "fixed",
             inset: 0,
@@ -290,6 +291,8 @@ export default function SharedNav({ lang, setLang }: SharedNavProps) {
               className="lk-hamburger"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu-nav"
               style={{ display: "none", flexDirection: "column", gap: 4, width: 22, cursor: "pointer", background: "none", border: "none", padding: 4, flexShrink: 0 }}
             >
               <span style={{ display: "block", width: "100%", height: 2, background: "var(--text-strong)", borderRadius: 2 }} />

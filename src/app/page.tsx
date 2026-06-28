@@ -54,7 +54,7 @@ import {
 
 function IcoLinkedin({ size = 18 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
       <circle cx={4} cy={4} r={2} />
     </svg>
@@ -71,6 +71,7 @@ function IcoInstagram({ size = 18 }: { size?: number }) {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <rect x={2} y={2} width={20} height={20} rx={5} ry={5} />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
@@ -80,7 +81,7 @@ function IcoInstagram({ size = 18 }: { size?: number }) {
 }
 function IcoTwitter({ size = 18 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
@@ -222,7 +223,7 @@ function Btn({
 
 function MarkDark({ size = 30 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" aria-hidden="true">
       <circle cx={20} cy={20} r={19} fill="#0A4D43" />
       <path
         d="M9 22.5c2.4 1.8 4.2 1.8 6.6 0s4.2-1.8 6.6 0 4.2 1.8 6.6 0"
@@ -242,7 +243,7 @@ function MarkDark({ size = 30 }: { size?: number }) {
 
 function MarkLight({ size = 28 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" aria-hidden="true">
       <circle cx={20} cy={20} r={19} fill="#EDF7F3" />
       <path
         d="M9 22.5c2.4 1.8 4.2 1.8 6.6 0s4.2-1.8 6.6 0 4.2 1.8 6.6 0"
@@ -1250,6 +1251,7 @@ export default function Page() {
       {/* ── MOBILE MENU OVERLAY ─────────────────────────────────────────── */}
       {menuOpen && (
         <div
+          id="mobile-menu"
           style={{
             position: "fixed",
             inset: 0,
@@ -1293,6 +1295,7 @@ export default function Page() {
             </a>
             <button
               onClick={() => setMenuOpen(false)}
+              aria-label="Fechar menu"
               style={{
                 background: "none",
                 border: "none",
@@ -1496,6 +1499,7 @@ export default function Page() {
                 <button
                   key={l}
                   onClick={() => changeLang(l)}
+                  aria-pressed={lang === l}
                   style={{
                     padding: "5px 12px",
                     border: "none",
@@ -1535,7 +1539,9 @@ export default function Page() {
             <button
               className="lk-hamburger"
               onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
+              aria-label="Abrir menu"
+              aria-expanded={menuOpen ? "true" : "false"}
+              aria-controls="mobile-menu"
             >
               <span />
               <span />
@@ -2583,6 +2589,7 @@ export default function Page() {
                 }}
               />
               <button
+                aria-label="Enviar mensagem"
                 onClick={sendFree}
                 style={{
                   width: 44,
