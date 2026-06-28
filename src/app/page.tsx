@@ -1235,6 +1235,7 @@ export default function Page() {
 
   return (
     <div
+      id="main-content"
       style={{
         fontFamily: "var(--font-sans)",
         background: "var(--paper)",

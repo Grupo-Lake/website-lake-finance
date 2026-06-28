@@ -95,7 +95,7 @@ export default function AjudaPage() {
   const t = DICT[lang];
 
   return (
-    <div style={{ fontFamily: "var(--font-sans)", background: "var(--paper)", color: "var(--text-body)", minHeight: "100vh" }}>
+    <div id="main-content" style={{ fontFamily: "var(--font-sans)", background: "var(--paper)", color: "var(--text-body)", minHeight: "100vh" }}>
       <SharedNav lang={lang} setLang={setLang} />
 
       {/* Hero with search */}
