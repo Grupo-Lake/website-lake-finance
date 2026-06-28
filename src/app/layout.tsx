@@ -9,7 +9,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt">
-      <body>{children}</body>
+      <body>
+        <a href="#main-content" className="skip-link">
+          Pular para o conteúdo principal
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

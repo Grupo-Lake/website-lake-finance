@@ -12,7 +12,32 @@
       "Bash(node -e ' *)",
       "Bash(npm view *)",
       "PowerShell(npm view *)",
-      "Skill(artifact-design)"
+      "Skill(artifact-design)",
+      "Skill(artifact-design:*)",
+      "Bash(git push *)",
+      "Bash(gh pr create --title 'feat: replace all placeholder content with real company data' --body ' *)",
+      "Bash(gh auth *)",
+      "Bash(gh api *)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(ls \"C:\\\\Users\\\\jeffe\\\\.claude\\\\skills\\\\accessibility-skills-complete\")",
+      "Read(//c/Users/jeffe/.claude/skills/accessibility-skills-complete/**)",
+      "Read(//c/Users/jeffe/.claude/skills/accessibility-skills-complete/audit/**)",
+      "Read(//c/Users/jeffe/.claude/skills/accessibility-skills-complete/test/**)",
+      "Read(//c/Users/jeffe/.claude/skills/accessibility-skills-complete/strategy/**)",
+      "Read(//c/Users/jeffe/.claude/skills/accessibility-skills-complete/ethics/**)",
+      "Read(//c/Users/jeffe/.claude/skills/accessibility-skills-complete/handoff/**)",
+      "Bash(python -c ' *)",
+      "Bash(ls -la \"c:\\\\Users\\\\jeffe\\\\Downloads\\\\grupo-lake\\\\lake-finance\\\\docs\" 2>/dev/null | head -30)",
+      "Read(//c/Users/jeffe/Downloads/grupo-lake/lake-finance/docs/**)",
+      "Bash(ls -la \"C:\\\\Users\\\\jeffe\\\\Downloads\\\\grupo-lake\\\\lake-finance\\\\landing\\\\\" | head -30)",
+      "Read(//c/Users/jeffe/Downloads/grupo-lake/lake-finance/**)",
+      "Read(//c/Users/jeffe/Downloads/grupo-lake/lake-finance/docs/design/**)",
+      "Read(//c/Users/jeffe/Downloads/grupo-lake/lake-finance/docs/software-engineer/**)",
+      "PowerShell(head -30)",
+      "Bash(dir)",
+      "Bash(npm run *)",
+      "PowerShell(taskkill /PID 31012 /F)"
     ]
   }
 }

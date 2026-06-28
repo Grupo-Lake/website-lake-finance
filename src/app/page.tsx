@@ -54,7 +54,7 @@ import {
 
 function IcoLinkedin({ size = 18 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
       <circle cx={4} cy={4} r={2} />
     </svg>
@@ -71,6 +71,7 @@ function IcoInstagram({ size = 18 }: { size?: number }) {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
+      aria-hidden="true"
     >
       <rect x={2} y={2} width={20} height={20} rx={5} ry={5} />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
@@ -80,7 +81,7 @@ function IcoInstagram({ size = 18 }: { size?: number }) {
 }
 function IcoTwitter({ size = 18 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
@@ -222,7 +223,7 @@ function Btn({
 
 function MarkDark({ size = 30 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" aria-hidden="true">
       <circle cx={20} cy={20} r={19} fill="#0A4D43" />
       <path
         d="M9 22.5c2.4 1.8 4.2 1.8 6.6 0s4.2-1.8 6.6 0 4.2 1.8 6.6 0"
@@ -242,7 +243,7 @@ function MarkDark({ size = 30 }: { size?: number }) {
 
 function MarkLight({ size = 28 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" aria-hidden="true">
       <circle cx={20} cy={20} r={19} fill="#EDF7F3" />
       <path
         d="M9 22.5c2.4 1.8 4.2 1.8 6.6 0s4.2-1.8 6.6 0 4.2 1.8 6.6 0"
@@ -1157,6 +1158,10 @@ export default function Page() {
   const t = DICT[lang];
   const af = t.features.items[activeFeature];
 
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   // Stats counter animation on scroll
   const animateStats = useCallback(() => {
     if (statsDone.current) return;
@@ -1191,6 +1196,18 @@ export default function Page() {
     if (chatRef.current)
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
   }, [chat]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        document.querySelector<HTMLButtonElement>('[aria-label="Abrir menu"]')?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
 
   const greeting = t.copilot.greeting;
   const fallback = t.copilot.fallback;
@@ -1235,6 +1252,7 @@ export default function Page() {
 
   return (
     <div
+      id="main-content"
       style={{
         fontFamily: "var(--font-sans)",
         background: "var(--paper)",
@@ -1245,6 +1263,7 @@ export default function Page() {
       {/* ── MOBILE MENU OVERLAY ─────────────────────────────────────────── */}
       {menuOpen && (
         <div
+          id="mobile-menu"
           style={{
             position: "fixed",
             inset: 0,
@@ -1288,6 +1307,7 @@ export default function Page() {
             </a>
             <button
               onClick={() => setMenuOpen(false)}
+              aria-label="Fechar menu"
               style={{
                 background: "none",
                 border: "none",
@@ -1491,6 +1511,7 @@ export default function Page() {
                 <button
                   key={l}
                   onClick={() => changeLang(l)}
+                  aria-pressed={lang === l}
                   style={{
                     padding: "5px 12px",
                     border: "none",
@@ -1530,7 +1551,9 @@ export default function Page() {
             <button
               className="lk-hamburger"
               onClick={() => setMenuOpen(true)}
-              aria-label="Open menu"
+              aria-label="Abrir menu"
+              aria-expanded={menuOpen ? "true" : "false"}
+              aria-controls="mobile-menu"
             >
               <span />
               <span />
@@ -2505,6 +2528,10 @@ export default function Page() {
             </div>
             <div
               ref={chatRef}
+              role="log"
+              aria-live="polite"
+              aria-label="Conversa com o Copilot"
+              aria-relevant="additions"
               style={{
                 padding: "22px 20px",
                 display: "flex",
@@ -2559,11 +2586,16 @@ export default function Page() {
                 background: "var(--surface-card)",
               }}
             >
+              <label htmlFor="copilot-input" className="sr-only">
+                Mensagem para o Copilot
+              </label>
               <input
+                id="copilot-input"
                 value={chatInput}
                 onChange={(e) => setChatInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && sendFree()}
                 placeholder={t.copilot.placeholder}
+                aria-label="Mensagem para o Copilot"
                 style={{
                   flex: 1,
                   border: "1px solid var(--border-default)",
@@ -2578,6 +2610,7 @@ export default function Page() {
                 }}
               />
               <button
+                aria-label="Enviar mensagem"
                 onClick={sendFree}
                 style={{
                   width: 44,
@@ -2757,6 +2790,8 @@ export default function Page() {
           </h2>
         </div>
         <div
+          role="tablist"
+          aria-label="Funcionalidades do Lake Finance"
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -2769,6 +2804,11 @@ export default function Page() {
             return (
               <button
                 key={i}
+                role="tab"
+                id={`feature-tab-${i}`}
+                aria-selected={on}
+                aria-controls={`feature-panel-${i}`}
+                tabIndex={on ? 0 : -1}
                 onClick={() => setActiveFeature(i)}
                 style={{
                   display: "inline-flex",
@@ -2794,179 +2834,186 @@ export default function Page() {
             );
           })}
         </div>
-        <div
-          className="lk-feature-panel"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            background: "var(--surface-card)",
-            border: "1px solid var(--border-subtle)",
-            borderRadius: 24,
-            boxShadow: "var(--shadow-md)",
-            overflow: "hidden",
-            minHeight: 360,
-          }}
-        >
+        {t.features.items.map((feature, i) => (
           <div
-            key={`d-${activeFeature}-${lang}`}
+            key={i}
+            role="tabpanel"
+            id={`feature-panel-${i}`}
+            aria-labelledby={`feature-tab-${i}`}
+            hidden={activeFeature !== i}
+            tabIndex={0}
             style={{
-              padding: 48,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              animation: "lkRise .4s ease both",
-            }}
-          >
-            <span
-              style={{
-                width: 52,
-                height: 52,
-                borderRadius: 15,
-                background: "var(--lake-50)",
-                color: "var(--lake-700)",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: 22,
-              }}
-            >
-              <Icon name={af.icon} size={26} />
-            </span>
-            <h3
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: 30,
-                lineHeight: 1.12,
-                letterSpacing: "-0.02em",
-                color: "var(--text-strong)",
-                fontWeight: 500,
-                margin: "0 0 12px",
-              }}
-            >
-              {af.title}
-            </h3>
-            <p
-              style={{
-                fontSize: 16,
-                lineHeight: 1.6,
-                color: "var(--text-body)",
-                margin: 0,
-              }}
-            >
-              {af.desc}
-            </p>
-          </div>
-          <div
-            className="lk-feature-screen"
-            style={{
-              background: "var(--grad-mist)",
-              borderLeft: "1px solid var(--border-subtle)",
-              padding: 40,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              display: activeFeature === i ? "grid" : "none",
+              gridTemplateColumns: "1fr 1fr",
+              background: "var(--surface-card)",
+              border: "1px solid var(--border-subtle)",
+              borderRadius: 24,
+              boxShadow: "var(--shadow-md)",
+              overflow: "hidden",
+              minHeight: 360,
             }}
           >
             <div
-              key={`p-${activeFeature}-${lang}`}
+              key={`d-${i}-${lang}`}
               style={{
-                width: "100%",
-                maxWidth: 320,
-                background: "var(--surface-card)",
-                border: "1px solid var(--border-subtle)",
-                borderRadius: 18,
-                boxShadow: "var(--shadow-md)",
-                overflow: "hidden",
-                animation: "lkRise .45s ease both",
+                padding: 48,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                animation: "lkRise .4s ease both",
+              }}
+            >
+              <span
+                style={{
+                  width: 52,
+                  height: 52,
+                  borderRadius: 15,
+                  background: "var(--lake-50)",
+                  color: "var(--lake-700)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: 22,
+                }}
+              >
+                <Icon name={feature.icon} size={26} />
+              </span>
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: 30,
+                  lineHeight: 1.12,
+                  letterSpacing: "-0.02em",
+                  color: "var(--text-strong)",
+                  fontWeight: 500,
+                  margin: "0 0 12px",
+                }}
+              >
+                {feature.title}
+              </h3>
+              <p
+                style={{
+                  fontSize: 16,
+                  lineHeight: 1.6,
+                  color: "var(--text-body)",
+                  margin: 0,
+                }}
+              >
+                {feature.desc}
+              </p>
+            </div>
+            <div
+              className="lk-feature-screen"
+              style={{
+                background: "var(--grad-mist)",
+                borderLeft: "1px solid var(--border-subtle)",
+                padding: 40,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               <div
+                key={`p-${i}-${lang}`}
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  padding: "14px 18px",
-                  borderBottom: "1px solid var(--border-subtle)",
+                  width: "100%",
+                  maxWidth: 320,
+                  background: "var(--surface-card)",
+                  border: "1px solid var(--border-subtle)",
+                  borderRadius: 18,
+                  boxShadow: "var(--shadow-md)",
+                  overflow: "hidden",
+                  animation: "lkRise .45s ease both",
                 }}
               >
-                <span
+                <div
                   style={{
-                    fontSize: 14,
-                    fontWeight: 600,
-                    color: "var(--text-strong)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    padding: "14px 18px",
+                    borderBottom: "1px solid var(--border-subtle)",
                   }}
                 >
-                  {af.screenTitle}
-                </span>
-                <span style={{ display: "inline-flex", gap: 5 }}>
-                  {[0, 1, 2].map((j) => (
-                    <span
-                      key={j}
-                      style={{
-                        width: 7,
-                        height: 7,
-                        borderRadius: 999,
-                        background:
-                          j === 2 ? "var(--lake-400)" : "var(--ink-200)",
-                        display: "inline-block",
-                      }}
-                    />
-                  ))}
-                </span>
-              </div>
-              <div style={{ padding: "8px 18px 18px" }}>
-                {af.rows.map((r, idx) => (
-                  <div
-                    key={idx}
+                  <span
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      padding: "12px 0",
-                      borderBottom:
-                        idx < af.rows.length - 1
-                          ? "1px solid var(--border-subtle)"
-                          : "none",
+                      fontSize: 14,
+                      fontWeight: 600,
+                      color: "var(--text-strong)",
                     }}
                   >
-                    <div
-                      style={{ display: "flex", alignItems: "center", gap: 11 }}
-                    >
+                    {feature.screenTitle}
+                  </span>
+                  <span style={{ display: "inline-flex", gap: 5 }}>
+                    {[0, 1, 2].map((j) => (
                       <span
+                        key={j}
                         style={{
-                          width: 32,
-                          height: 32,
-                          borderRadius: 10,
-                          background: "var(--lake-50)",
-                          color: "var(--lake-700)",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          justifyContent: "center",
+                          width: 7,
+                          height: 7,
+                          borderRadius: 999,
+                          background:
+                            j === 2 ? "var(--lake-400)" : "var(--ink-200)",
+                          display: "inline-block",
                         }}
-                      >
-                        <Icon name={r.icon} size={15} />
-                      </span>
-                      <span
-                        style={{ fontSize: 13.5, color: "var(--text-strong)" }}
-                      >
-                        {r.label}
-                      </span>
-                    </div>
-                    <span
+                      />
+                    ))}
+                  </span>
+                </div>
+                <div style={{ padding: "8px 18px 18px" }}>
+                  {feature.rows.map((r, idx) => (
+                    <div
+                      key={idx}
                       style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: 13,
-                        color: "var(--text-body)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        padding: "12px 0",
+                        borderBottom:
+                          idx < feature.rows.length - 1
+                            ? "1px solid var(--border-subtle)"
+                            : "none",
                       }}
                     >
-                      {r.value}
-                    </span>
-                  </div>
-                ))}
+                      <div
+                        style={{ display: "flex", alignItems: "center", gap: 11 }}
+                      >
+                        <span
+                          style={{
+                            width: 32,
+                            height: 32,
+                            borderRadius: 10,
+                            background: "var(--lake-50)",
+                            color: "var(--lake-700)",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <Icon name={r.icon} size={15} />
+                        </span>
+                        <span
+                          style={{ fontSize: 13.5, color: "var(--text-strong)" }}
+                        >
+                          {r.label}
+                        </span>
+                      </div>
+                      <span
+                        style={{
+                          fontFamily: "var(--font-mono)",
+                          fontSize: 13,
+                          color: "var(--text-body)",
+                        }}
+                      >
+                        {r.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ))}
       </section>
 
       {/* ── SECURITY ────────────────────────────────────────────────────── */}
@@ -3494,6 +3541,9 @@ export default function Page() {
                 }}
               >
                 <button
+                  id={`faq-question-${i}`}
+                  aria-expanded={open ? "true" : "false"}
+                  aria-controls={`faq-answer-${i}`}
                   onClick={() => setOpenFaq(open ? -1 : i)}
                   style={{
                     width: "100%",
@@ -3536,18 +3586,21 @@ export default function Page() {
                     <Plus size={18} />
                   </span>
                 </button>
-                {open && (
-                  <div
-                    style={{
-                      padding: "0 22px 22px",
-                      fontSize: 15,
-                      lineHeight: 1.6,
-                      color: "var(--text-body)",
-                    }}
-                  >
-                    {item.a}
-                  </div>
-                )}
+                <div
+                  id={`faq-answer-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
+                  hidden={!open}
+                  style={{
+                    padding: open ? "0 22px 22px" : "0 22px 22px",
+                    fontSize: 15,
+                    lineHeight: 1.6,
+                    color: "var(--text-body)",
+                    display: open ? "block" : "none",
+                  }}
+                >
+                  {item.a}
+                </div>
               </div>
             );
           })}

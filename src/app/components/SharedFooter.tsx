@@ -7,7 +7,7 @@ type Lang = "pt" | "en";
 
 function MarkLight({ size = 28 }: { size?: number }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
+    <svg width={size} height={size} viewBox="0 0 40 40" fill="none" aria-hidden="true">
       <circle cx={20} cy={20} r={19} fill="#EDF7F3" />
       <path d="M9 22.5c2.4 1.8 4.2 1.8 6.6 0s4.2-1.8 6.6 0 4.2 1.8 6.6 0" stroke="#0C6052" strokeWidth={2.2} strokeLinecap="round" />
       <path d="M9 16c2.4 1.8 4.2 1.8 6.6 0s4.2-1.8 6.6 0 4.2 1.8 6.6 0" stroke="#0A4D43" strokeWidth={2.2} strokeLinecap="round" />
@@ -17,7 +17,7 @@ function MarkLight({ size = 28 }: { size?: number }) {
 
 function IcoLinkedin() {
   return (
-    <svg width={18} height={18} viewBox="0 0 24 24" fill="currentColor">
+    <svg width={18} height={18} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
       <circle cx={4} cy={4} r={2} />
     </svg>
@@ -26,7 +26,7 @@ function IcoLinkedin() {
 
 function IcoInstagram() {
   return (
-    <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+    <svg width={18} height={18} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <rect x={2} y={2} width={20} height={20} rx={5} ry={5} />
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
       <line x1={17.5} y1={6.5} x2={17.51} y2={6.5} />
@@ -36,7 +36,7 @@ function IcoInstagram() {
 
 function IcoTwitter() {
   return (
-    <svg width={18} height={18} viewBox="0 0 24 24" fill="currentColor">
+    <svg width={18} height={18} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
     </svg>
   );
@@ -148,9 +148,9 @@ export default function SharedFooter({ lang }: SharedFooterProps) {
             </p>
             <div style={{ display: "flex", gap: 10 }}>
               {[
-                { Ico: IcoLinkedin, href: "#", label: "LinkedIn" },
-                { Ico: IcoInstagram, href: "https://www.instagram.com/grupo.lake", label: "Instagram" },
-                { Ico: IcoTwitter, href: "#", label: "X" },
+                { Ico: IcoLinkedin, href: "#", label: "Lake Finance no LinkedIn" },
+                { Ico: IcoInstagram, href: "https://www.instagram.com/grupo.lake", label: "Lake Finance no Instagram" },
+                { Ico: IcoTwitter, href: "#", label: "Lake Finance no X" },
               ].map(({ Ico, href, label }) => (
                 <Link
                   key={label}

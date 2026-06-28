@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 type Lang = "pt" | "en";
@@ -67,10 +67,23 @@ export default function SharedNav({ lang, setLang }: SharedNavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const t = NAV[lang];
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        document.querySelector<HTMLButtonElement>('[aria-label="Open menu"]')?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
+
   return (
     <>
       {menuOpen && (
         <div
+          id="mobile-menu-nav"
           style={{
             position: "fixed",
             inset: 0,
@@ -290,6 +303,8 @@ export default function SharedNav({ lang, setLang }: SharedNavProps) {
               className="lk-hamburger"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu-nav"
               style={{ display: "none", flexDirection: "column", gap: 4, width: 22, cursor: "pointer", background: "none", border: "none", padding: 4, flexShrink: 0 }}
             >
               <span style={{ display: "block", width: "100%", height: 2, background: "var(--text-strong)", borderRadius: 2 }} />

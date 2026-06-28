@@ -112,8 +112,12 @@ export default function RoadmapPage() {
   const [lang, setLang] = useState<Lang>("pt");
   const t = DICT[lang];
 
+  React.useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
+
   return (
-    <div style={{ fontFamily: "var(--font-sans)", background: "var(--paper)", color: "var(--text-body)", minHeight: "100vh" }}>
+    <div id="main-content" style={{ fontFamily: "var(--font-sans)", background: "var(--paper)", color: "var(--text-body)", minHeight: "100vh" }}>
       <SharedNav lang={lang} setLang={setLang} />
 
       {/* Hero */}
