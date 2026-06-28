@@ -9,7 +9,7 @@ const DICT = {
   pt: {
     eyebrow: "LEGAL",
     title: "Termos de Uso",
-    updated: "Vigente desde 1 de janeiro de 2025",
+    updated: "Vigente desde 27 de junho de 2026",
     toc: [
       "Aceitação dos Termos",
       "Descrição do Serviço",
@@ -23,7 +23,7 @@ const DICT = {
     sections: [
       {
         title: "1. Aceitação dos Termos",
-        body: `Ao acessar ou usar os serviços do Lake Finance ("Serviço"), você concorda com estes Termos de Uso. Se você não concordar com qualquer parte destes termos, não poderá usar o Serviço. Estes Termos constituem um acordo vinculante entre você e a Lake Finance Tecnologia Ltda., com sede em São Paulo, Brasil.
+        body: `Ao acessar ou usar os serviços do Lake Finance ("Serviço"), você concorda com estes Termos de Uso. Se você não concordar com qualquer parte destes termos, não poderá usar o Serviço. Estes Termos constituem um acordo vinculante entre você e a Lake Tecnologia · CNPJ 57.924.952/0001-19, com sede em São Paulo, Brasil.
 
 O uso continuado do Serviço após alterações nos Termos constitui aceitação das novas condições. Recomendamos revisão periódica desta página.`,
       },
@@ -71,18 +71,18 @@ Na extensão máxima permitida pela lei aplicável, o Lake Finance não será re
         title: "8. Contato",
         body: `Para dúvidas sobre estes Termos, entre em contato:
 
-Lake Finance Tecnologia Ltda.
-E-mail: juridico@lakefi.com.br
-Central de Ajuda: lake.com.br/ajuda
+Lake Tecnologia · CNPJ 57.924.952/0001-19
+E-mail: jeffersonlds3009@gmail.com
+Central de Ajuda: lakefi.com.br/ajuda
 
-Para questões relacionadas à proteção de dados, contate nosso Encarregado (DPO): dpo@lakefi.com.br`,
+Para questões relacionadas à proteção de dados, contate nosso Encarregado (DPO): Jefferson Laurindo da Silva — jeffersonlds3009@gmail.com`,
       },
     ],
   },
   en: {
     eyebrow: "LEGAL",
     title: "Terms of Use",
-    updated: "Effective January 1, 2025",
+    updated: "Effective June 27, 2026",
     toc: [
       "Acceptance of Terms",
       "Description of Service",
@@ -96,7 +96,7 @@ Para questões relacionadas à proteção de dados, contate nosso Encarregado (D
     sections: [
       {
         title: "1. Acceptance of Terms",
-        body: `By accessing or using Lake Finance services ("Service"), you agree to these Terms of Use. If you disagree with any part of these terms, you may not use the Service. These Terms constitute a binding agreement between you and Lake Finance Tecnologia Ltda., headquartered in São Paulo, Brazil.
+        body: `By accessing or using Lake Finance services ("Service"), you agree to these Terms of Use. If you disagree with any part of these terms, you may not use the Service. These Terms constitute a binding agreement between you and Lake Finance Technology · CNPJ 57.924.952/0001-19, headquartered in São Paulo, Brazil.
 
 Continued use of the Service after changes to the Terms constitutes acceptance of the new conditions. We recommend reviewing this page periodically.`,
       },
@@ -144,11 +144,11 @@ To the maximum extent permitted by applicable law, Lake Finance will not be liab
         title: "8. Contact",
         body: `For questions about these Terms, contact us:
 
-Lake Finance Tecnologia Ltda.
-Email: juridico@lakefi.com.br
-Help Center: lake.com.br/ajuda
+Lake Finance Technology · CNPJ 57.924.952/0001-19
+Email: jeffersonlds3009@gmail.com
+Help Center: lakefi.com.br/ajuda
 
-For data protection matters, contact our Data Protection Officer (DPO): dpo@lakefi.com.br`,
+For data protection matters, contact our Data Protection Officer (DPO): Jefferson Laurindo da Silva — jeffersonlds3009@gmail.com`,
       },
     ],
   },

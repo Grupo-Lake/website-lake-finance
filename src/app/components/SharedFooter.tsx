@@ -44,8 +44,8 @@ function IcoTwitter() {
 
 const FOOTER = {
   pt: {
-    legal: "Lake Finance Tecnologia Ltda. · Empresa registrada · Sujeita às regras do Open Finance Brasil.",
-    copyright: "© 2025 Lake Finance",
+    legal: "Lake Tecnologia · CNPJ 57.924.952/0001-19 · Sujeita às regras do Open Finance Brasil.",
+    copyright: "© 2024 Lake Finance",
     tag: "FEITO COM ♥ NO BRASIL",
     cols: [
       {
@@ -78,8 +78,8 @@ const FOOTER = {
     ],
   },
   en: {
-    legal: "Lake Finance Technology Ltd. · Registered company · Subject to Open Finance Brazil rules.",
-    copyright: "© 2025 Lake Finance",
+    legal: "Lake Finance Technology · CNPJ 57.924.952/0001-19 · Subject to Open Finance Brazil rules.",
+    copyright: "© 2024 Lake Finance",
     tag: "BUILT WITH ♥ IN BRAZIL",
     cols: [
       {
@@ -148,9 +148,9 @@ export default function SharedFooter({ lang }: SharedFooterProps) {
             </p>
             <div style={{ display: "flex", gap: 10 }}>
               {[
-                { Ico: IcoLinkedin, href: "/sobre", label: "LinkedIn" },
-                { Ico: IcoInstagram, href: "/blog", label: "Instagram" },
-                { Ico: IcoTwitter, href: "/imprensa", label: "X" },
+                { Ico: IcoLinkedin, href: "#", label: "LinkedIn" },
+                { Ico: IcoInstagram, href: "https://www.instagram.com/grupo.lake", label: "Instagram" },
+                { Ico: IcoTwitter, href: "#", label: "X" },
               ].map(({ Ico, href, label }) => (
                 <Link
                   key={label}

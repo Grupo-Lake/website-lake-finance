@@ -9,45 +9,47 @@ const DICT = {
   pt: {
     eyebrow: "BLOG",
     title: "Finanças pessoais sem complicação",
-    sub: "Artigos, guias e análises do time do Lake para você dominar o seu dinheiro.",
+    sub: "Artigos, guias e análises do time do Lake para você dominar o seu dinheiro. Conteúdo em breve.",
     categories: ["Todos", "Educação", "Produto", "Dicas"],
     featured: {
-      cat: "EDUCAÇÃO",
-      title: "Como o Open Finance está mudando a gestão financeira no Brasil",
-      excerpt: "A regulamentação do Open Finance pelo Banco Central criou uma oportunidade única: pela primeira vez, você tem o direito de mover seus dados bancários para qualquer app. Entenda o que isso significa para o seu bolso.",
-      author: "Mariana Lima",
-      date: "12 Jun 2025",
-      read: "8 min",
+      cat: "PRODUTO",
+      title: "Lake Finance Beta — nosso primeiro artigo está a caminho",
+      excerpt: "Estamos preparando conteúdo educativo sobre finanças pessoais, Open Finance e inteligência artificial financeira. Em breve nossos primeiros artigos estarão disponíveis aqui.",
+      author: "Jefferson Laurindo",
+      date: "27 Jun 2026",
+      read: "Em breve",
+      initials: "JL",
     },
     articles: [
-      { cat: "EDUCAÇÃO", title: "5 hábitos financeiros que separam quem prospera de quem patina", excerpt: "Pequenas decisões diárias que fazem diferença enorme no longo prazo.", author: "Rafael Souza", date: "5 Jun 2025", read: "6 min", initials: "RS" },
-      { cat: "PRODUTO", title: "Health Score: entenda como calculamos sua saúde financeira", excerpt: "De onde vêm os 0 a 100 pontos que resumem sua vida financeira.", author: "Diego Costa", date: "28 Mai 2025", read: "5 min", initials: "DC" },
-      { cat: "PRODUTO", title: "Categorização automática: como a IA entende seus gastos", excerpt: "Por que nossa IA classifica gastos com 85%+ de precisão sem você fazer nada.", author: "Diego Costa", date: "19 Mai 2025", read: "4 min", initials: "DC" },
-      { cat: "DICAS", title: "Metas financeiras: o guia prático para começar hoje", excerpt: "Você não precisa de planilha. Precisa de clareza sobre o que quer conquistar.", author: "Mariana Lima", date: "9 Mai 2025", read: "7 min", initials: "ML" },
-      { cat: "EDUCAÇÃO", title: "O que é Open Finance e por que você deveria se importar", excerpt: "Em linguagem simples: o que muda na sua vida quando os bancos compartilham dados.", author: "Rafael Souza", date: "2 Mai 2025", read: "5 min", initials: "RS" },
-      { cat: "DICAS", title: "Como poupar R$ 200 por mês sem sentir diferença", excerpt: "Onde esse dinheiro está escondido nas suas contas — e como resgatá-lo.", author: "Mariana Lima", date: "24 Abr 2025", read: "6 min", initials: "ML" },
+      { cat: "PRODUTO", title: "Como o Lake Finance usa IA para entender seus gastos", excerpt: "Conteúdo em breve — estamos preparando nossos primeiros artigos sobre a tecnologia por trás do Lake Finance.", author: "Jefferson Laurindo", date: "Em breve", read: "—", initials: "JL" },
+      { cat: "EDUCAÇÃO", title: "O que é Open Finance e como o Lake usa para te ajudar", excerpt: "Em breve publicaremos conteúdo educativo sobre Open Finance e como isso transforma a gestão financeira.", author: "Jefferson Laurindo", date: "Em breve", read: "—", initials: "JL" },
+      { cat: "PRODUTO", title: "Health Score: como medimos sua saúde financeira", excerpt: "Um guia completo sobre como calculamos o Health Score e o que você pode fazer para melhorá-lo.", author: "Jefferson Laurindo", date: "Em breve", read: "—", initials: "JL" },
+      { cat: "DICAS", title: "Categorização automática: sem configuração, sem trabalho manual", excerpt: "Como nossa IA aprende com seus gastos e categoriza automaticamente cada transação.", author: "Jefferson Laurindo", date: "Em breve", read: "—", initials: "JL" },
+      { cat: "EDUCAÇÃO", title: "LGPD e Open Finance: seus dados estão em boas mãos", excerpt: "Transparência sobre como protegemos seus dados financeiros e o que a LGPD garante para você.", author: "Jefferson Laurindo", date: "Em breve", read: "—", initials: "JL" },
+      { cat: "DICAS", title: "Como aproveitar ao máximo o Lake Finance Beta", excerpt: "Guia para os primeiros usuários do Lake Finance Beta — dicas para tirar o máximo da plataforma.", author: "Jefferson Laurindo", date: "Em breve", read: "—", initials: "JL" },
     ],
   },
   en: {
     eyebrow: "BLOG",
     title: "Personal finance made simple",
-    sub: "Articles, guides, and analysis from the Lake team to help you master your money.",
+    sub: "Articles, guides, and analysis from the Lake team to help you master your money. Content coming soon.",
     categories: ["All", "Education", "Product", "Tips"],
     featured: {
-      cat: "EDUCATION",
-      title: "How Open Finance is changing financial management in Brazil",
-      excerpt: "The Central Bank's Open Finance regulation created a unique opportunity: for the first time, you have the right to move your banking data to any app. Understand what this means for your wallet.",
-      author: "Mariana Lima",
-      date: "Jun 12, 2025",
-      read: "8 min",
+      cat: "PRODUCT",
+      title: "Lake Finance Beta — our first article is on the way",
+      excerpt: "We're preparing educational content about personal finance, Open Finance, and financial AI. Our first articles will be available here soon.",
+      author: "Jefferson Laurindo",
+      date: "Jun 27, 2026",
+      read: "Coming soon",
+      initials: "JL",
     },
     articles: [
-      { cat: "EDUCATION", title: "5 financial habits that separate those who thrive from those who struggle", excerpt: "Small daily decisions that make an enormous difference in the long run.", author: "Rafael Souza", date: "Jun 5, 2025", read: "6 min", initials: "RS" },
-      { cat: "PRODUCT", title: "Health Score: how we calculate your financial health", excerpt: "Where the 0–100 points that summarize your financial life come from.", author: "Diego Costa", date: "May 28, 2025", read: "5 min", initials: "DC" },
-      { cat: "PRODUCT", title: "Auto-categorization: how AI understands your spending", excerpt: "Why our AI classifies expenses with 85%+ accuracy without you doing a thing.", author: "Diego Costa", date: "May 19, 2025", read: "4 min", initials: "DC" },
-      { cat: "TIPS", title: "Financial goals: the practical guide to start today", excerpt: "You don't need a spreadsheet. You need clarity on what you want to achieve.", author: "Mariana Lima", date: "May 9, 2025", read: "7 min", initials: "ML" },
-      { cat: "EDUCATION", title: "What is Open Finance and why you should care", excerpt: "In plain language: what changes in your life when banks share data.", author: "Rafael Souza", date: "May 2, 2025", read: "5 min", initials: "RS" },
-      { cat: "TIPS", title: "How to save R$ 200 per month without feeling the difference", excerpt: "Where that money is hiding in your accounts — and how to reclaim it.", author: "Mariana Lima", date: "Apr 24, 2025", read: "6 min", initials: "ML" },
+      { cat: "PRODUCT", title: "How Lake Finance uses AI to understand your spending", excerpt: "Content coming soon — we're preparing our first articles about the technology behind Lake Finance.", author: "Jefferson Laurindo", date: "Coming soon", read: "—", initials: "JL" },
+      { cat: "EDUCATION", title: "What is Open Finance and how Lake uses it to help you", excerpt: "Soon we'll publish educational content about Open Finance and how it transforms financial management.", author: "Jefferson Laurindo", date: "Coming soon", read: "—", initials: "JL" },
+      { cat: "PRODUCT", title: "Health Score: how we measure your financial health", excerpt: "A complete guide on how we calculate the Health Score and what you can do to improve it.", author: "Jefferson Laurindo", date: "Coming soon", read: "—", initials: "JL" },
+      { cat: "TIPS", title: "Auto-categorization: no configuration, no manual work", excerpt: "How our AI learns from your spending and automatically categorizes every transaction.", author: "Jefferson Laurindo", date: "Coming soon", read: "—", initials: "JL" },
+      { cat: "EDUCATION", title: "LGPD and Open Finance: your data is in good hands", excerpt: "Transparency about how we protect your financial data and what LGPD guarantees for you.", author: "Jefferson Laurindo", date: "Coming soon", read: "—", initials: "JL" },
+      { cat: "TIPS", title: "How to make the most of Lake Finance Beta", excerpt: "A guide for the first Lake Finance Beta users — tips to get the most out of the platform.", author: "Jefferson Laurindo", date: "Coming soon", read: "—", initials: "JL" },
     ],
   },
 };
@@ -95,7 +97,7 @@ export default function BlogPage() {
             </h2>
             <p style={{ fontSize: 16, lineHeight: 1.6, color: "rgba(255,255,255,.75)", margin: 0 }}>{t.featured.excerpt}</p>
             <div style={{ display: "flex", alignItems: "center", gap: 16, marginTop: 8 }}>
-              <div style={{ width: 32, height: 32, borderRadius: "50%", background: "rgba(255,255,255,.2)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 600, color: "#fff" }}>ML</div>
+              <div style={{ width: 32, height: 32, borderRadius: "50%", background: "rgba(255,255,255,.2)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-mono)", fontSize: 11, fontWeight: 600, color: "#fff" }}>{t.featured.initials}</div>
               <span style={{ fontSize: 14, color: "rgba(255,255,255,.75)" }}>{t.featured.author}</span>
               <span style={{ fontSize: 14, color: "rgba(255,255,255,.45)" }}>·</span>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: 12, color: "rgba(255,255,255,.6)" }}>{t.featured.date}</span>

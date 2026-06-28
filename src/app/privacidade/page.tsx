@@ -9,7 +9,7 @@ const DICT = {
   pt: {
     eyebrow: "LEGAL",
     title: "Política de Privacidade",
-    updated: "Vigente desde 1 de janeiro de 2025",
+    updated: "Vigente desde 27 de junho de 2026",
     toc: [
       "Quem somos",
       "Dados que coletamos",
@@ -24,9 +24,9 @@ const DICT = {
     sections: [
       {
         title: "1. Quem somos",
-        body: `A Lake Finance Tecnologia Ltda. ("Lake Finance", "nós") é uma empresa brasileira de tecnologia financeira registrada em São Paulo — SP, Brasil. Somos o controlador dos dados pessoais coletados por meio do nosso aplicativo e plataforma web.
+        body: `A Lake Tecnologia · CNPJ 57.924.952/0001-19 ("Lake Finance", "nós") é uma empresa brasileira de tecnologia financeira registrada em São Paulo — SP, Brasil. Somos o controlador dos dados pessoais coletados por meio do nosso aplicativo e plataforma web.
 
-Para questões relacionadas a esta Política, entre em contato com nosso Encarregado de Proteção de Dados (DPO): dpo@lakefi.com.br.`,
+Para questões relacionadas a esta Política, entre em contato com nosso Encarregado de Proteção de Dados (DPO): Jefferson Laurindo da Silva — jeffersonlds3009@gmail.com.`,
       },
       {
         title: "2. Dados que coletamos",
@@ -71,9 +71,9 @@ Qualquer terceiro que processe dados em nosso nome assina um Acordo de Processam
         title: "5. Retenção de dados",
         body: `Mantemos seus dados pessoais pelo tempo necessário para prestar o Serviço e cumprir obrigações legais:
 
-Dados de conta: enquanto sua conta estiver ativa. Após encerramento, deletamos em até 90 dias.
+Dados de conta: enquanto sua conta estiver ativa. Após encerramento, deletamos em até 3 meses.
 
-Dados financeiros: máximo de 24 meses de histórico de transações no app. Você pode exportar ou solicitar exclusão a qualquer momento.
+Dados financeiros: máximo de 23 meses de histórico de transações no app. Você pode exportar ou solicitar exclusão a qualquer momento.
 
 Logs de segurança: 12 meses, exigidos para detecção de fraudes e conformidade regulatória.`,
       },
@@ -90,7 +90,7 @@ Logs de segurança: 12 meses, exigidos para detecção de fraudes e conformidade
 • Informação sobre compartilhamentos realizados;
 • Revogação do consentimento a qualquer momento.
 
-Para exercer seus direitos, acesse as configurações do app ou entre em contato com dpo@lakefi.com.br. Respondemos em até 15 dias.`,
+Para exercer seus direitos, acesse as configurações do app ou entre em contato com jeffersonlds3009@gmail.com. Respondemos em até 15 dias.`,
         isList: true,
       },
       {
@@ -118,12 +118,12 @@ Em caso de incidente de segurança que afete seus dados, notificaremos você e a
       {
         title: "9. Contato e DPO",
         body: `Encarregado de Proteção de Dados (DPO):
-E-mail: dpo@lakefi.com.br
+Jefferson Laurindo da Silva
+E-mail: jeffersonlds3009@gmail.com
 Prazo de resposta: até 15 dias úteis
 
-Lake Finance Tecnologia Ltda.
-Av. Faria Lima, 3000 — São Paulo, SP, Brasil
-juridico@lakefi.com.br
+Lake Tecnologia · CNPJ 57.924.952/0001-19
+São Paulo, SP, Brasil
 
 Para retirar seu consentimento ou solicitar exclusão de dados, acesse Configurações → Privacidade no app ou envie e-mail para o DPO.`,
       },
@@ -132,7 +132,7 @@ Para retirar seu consentimento ou solicitar exclusão de dados, acesse Configura
   en: {
     eyebrow: "LEGAL",
     title: "Privacy Policy",
-    updated: "Effective January 1, 2025",
+    updated: "Effective June 27, 2026",
     toc: [
       "Who we are",
       "Data we collect",
@@ -147,9 +147,9 @@ Para retirar seu consentimento ou solicitar exclusão de dados, acesse Configura
     sections: [
       {
         title: "1. Who we are",
-        body: `Lake Finance Tecnologia Ltda. ("Lake Finance", "we") is a Brazilian financial technology company registered in São Paulo — SP, Brazil. We are the controller of personal data collected through our app and web platform.
+        body: `Lake Finance Technology · CNPJ 57.924.952/0001-19 ("Lake Finance", "we") is a Brazilian financial technology company registered in São Paulo — SP, Brazil. We are the controller of personal data collected through our app and web platform.
 
-For questions related to this Policy, contact our Data Protection Officer (DPO): dpo@lakefi.com.br.`,
+For questions related to this Policy, contact our Data Protection Officer (DPO): Jefferson Laurindo da Silva — jeffersonlds3009@gmail.com.`,
       },
       {
         title: "2. Data we collect",
@@ -194,9 +194,9 @@ Any third party that processes data on our behalf signs a Data Processing Agreem
         title: "5. Data retention",
         body: `We retain your personal data for as long as necessary to provide the Service and meet legal obligations:
 
-Account data: while your account is active. After closure, we delete within 90 days.
+Account data: while your account is active. After closure, we delete within 3 months.
 
-Financial data: maximum 24 months of transaction history in the app. You can export or request deletion at any time.
+Financial data: maximum 23 months of transaction history in the app. You can export or request deletion at any time.
 
 Security logs: 12 months, required for fraud detection and regulatory compliance.`,
       },
@@ -213,7 +213,7 @@ Security logs: 12 months, required for fraud detection and regulatory compliance
 • Information about sharing that has occurred;
 • Withdrawal of consent at any time.
 
-To exercise your rights, go to app Settings or contact dpo@lakefi.com.br. We respond within 15 days.`,
+To exercise your rights, go to app Settings or contact jeffersonlds3009@gmail.com. We respond within 15 days.`,
         isList: true,
       },
       {
@@ -241,12 +241,12 @@ In the event of a security incident affecting your data, we will notify you and 
       {
         title: "9. Contact & DPO",
         body: `Data Protection Officer (DPO):
-Email: dpo@lakefi.com.br
+Jefferson Laurindo da Silva
+Email: jeffersonlds3009@gmail.com
 Response time: up to 15 business days
 
-Lake Finance Tecnologia Ltda.
-Av. Faria Lima, 3000 — São Paulo, SP, Brazil
-juridico@lakefi.com.br
+Lake Finance Technology · CNPJ 57.924.952/0001-19
+São Paulo, SP, Brazil
 
 To withdraw consent or request data deletion, go to Settings → Privacy in the app or email the DPO.`,
       },
