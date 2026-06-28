@@ -2769,6 +2769,8 @@ export default function Page() {
           </h2>
         </div>
         <div
+          role="tablist"
+          aria-label="Funcionalidades do Lake Finance"
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -2781,6 +2783,11 @@ export default function Page() {
             return (
               <button
                 key={i}
+                role="tab"
+                id={`feature-tab-${i}`}
+                aria-selected={on}
+                aria-controls={`feature-panel-${i}`}
+                tabIndex={on ? 0 : -1}
                 onClick={() => setActiveFeature(i)}
                 style={{
                   display: "inline-flex",
@@ -2806,179 +2813,186 @@ export default function Page() {
             );
           })}
         </div>
-        <div
-          className="lk-feature-panel"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            background: "var(--surface-card)",
-            border: "1px solid var(--border-subtle)",
-            borderRadius: 24,
-            boxShadow: "var(--shadow-md)",
-            overflow: "hidden",
-            minHeight: 360,
-          }}
-        >
+        {t.features.items.map((feature, i) => (
           <div
-            key={`d-${activeFeature}-${lang}`}
+            key={i}
+            role="tabpanel"
+            id={`feature-panel-${i}`}
+            aria-labelledby={`feature-tab-${i}`}
+            hidden={activeFeature !== i}
+            tabIndex={0}
             style={{
-              padding: 48,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              animation: "lkRise .4s ease both",
-            }}
-          >
-            <span
-              style={{
-                width: 52,
-                height: 52,
-                borderRadius: 15,
-                background: "var(--lake-50)",
-                color: "var(--lake-700)",
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                marginBottom: 22,
-              }}
-            >
-              <Icon name={af.icon} size={26} />
-            </span>
-            <h3
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: 30,
-                lineHeight: 1.12,
-                letterSpacing: "-0.02em",
-                color: "var(--text-strong)",
-                fontWeight: 500,
-                margin: "0 0 12px",
-              }}
-            >
-              {af.title}
-            </h3>
-            <p
-              style={{
-                fontSize: 16,
-                lineHeight: 1.6,
-                color: "var(--text-body)",
-                margin: 0,
-              }}
-            >
-              {af.desc}
-            </p>
-          </div>
-          <div
-            className="lk-feature-screen"
-            style={{
-              background: "var(--grad-mist)",
-              borderLeft: "1px solid var(--border-subtle)",
-              padding: 40,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
+              display: activeFeature === i ? "grid" : "none",
+              gridTemplateColumns: "1fr 1fr",
+              background: "var(--surface-card)",
+              border: "1px solid var(--border-subtle)",
+              borderRadius: 24,
+              boxShadow: "var(--shadow-md)",
+              overflow: "hidden",
+              minHeight: 360,
             }}
           >
             <div
-              key={`p-${activeFeature}-${lang}`}
+              key={`d-${i}-${lang}`}
               style={{
-                width: "100%",
-                maxWidth: 320,
-                background: "var(--surface-card)",
-                border: "1px solid var(--border-subtle)",
-                borderRadius: 18,
-                boxShadow: "var(--shadow-md)",
-                overflow: "hidden",
-                animation: "lkRise .45s ease both",
+                padding: 48,
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                animation: "lkRise .4s ease both",
+              }}
+            >
+              <span
+                style={{
+                  width: 52,
+                  height: 52,
+                  borderRadius: 15,
+                  background: "var(--lake-50)",
+                  color: "var(--lake-700)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginBottom: 22,
+                }}
+              >
+                <Icon name={feature.icon} size={26} />
+              </span>
+              <h3
+                style={{
+                  fontFamily: "var(--font-display)",
+                  fontSize: 30,
+                  lineHeight: 1.12,
+                  letterSpacing: "-0.02em",
+                  color: "var(--text-strong)",
+                  fontWeight: 500,
+                  margin: "0 0 12px",
+                }}
+              >
+                {feature.title}
+              </h3>
+              <p
+                style={{
+                  fontSize: 16,
+                  lineHeight: 1.6,
+                  color: "var(--text-body)",
+                  margin: 0,
+                }}
+              >
+                {feature.desc}
+              </p>
+            </div>
+            <div
+              className="lk-feature-screen"
+              style={{
+                background: "var(--grad-mist)",
+                borderLeft: "1px solid var(--border-subtle)",
+                padding: 40,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
               }}
             >
               <div
+                key={`p-${i}-${lang}`}
                 style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  padding: "14px 18px",
-                  borderBottom: "1px solid var(--border-subtle)",
+                  width: "100%",
+                  maxWidth: 320,
+                  background: "var(--surface-card)",
+                  border: "1px solid var(--border-subtle)",
+                  borderRadius: 18,
+                  boxShadow: "var(--shadow-md)",
+                  overflow: "hidden",
+                  animation: "lkRise .45s ease both",
                 }}
               >
-                <span
+                <div
                   style={{
-                    fontSize: 14,
-                    fontWeight: 600,
-                    color: "var(--text-strong)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    padding: "14px 18px",
+                    borderBottom: "1px solid var(--border-subtle)",
                   }}
                 >
-                  {af.screenTitle}
-                </span>
-                <span style={{ display: "inline-flex", gap: 5 }}>
-                  {[0, 1, 2].map((j) => (
-                    <span
-                      key={j}
-                      style={{
-                        width: 7,
-                        height: 7,
-                        borderRadius: 999,
-                        background:
-                          j === 2 ? "var(--lake-400)" : "var(--ink-200)",
-                        display: "inline-block",
-                      }}
-                    />
-                  ))}
-                </span>
-              </div>
-              <div style={{ padding: "8px 18px 18px" }}>
-                {af.rows.map((r, idx) => (
-                  <div
-                    key={idx}
+                  <span
                     style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                      padding: "12px 0",
-                      borderBottom:
-                        idx < af.rows.length - 1
-                          ? "1px solid var(--border-subtle)"
-                          : "none",
+                      fontSize: 14,
+                      fontWeight: 600,
+                      color: "var(--text-strong)",
                     }}
                   >
-                    <div
-                      style={{ display: "flex", alignItems: "center", gap: 11 }}
-                    >
+                    {feature.screenTitle}
+                  </span>
+                  <span style={{ display: "inline-flex", gap: 5 }}>
+                    {[0, 1, 2].map((j) => (
                       <span
+                        key={j}
                         style={{
-                          width: 32,
-                          height: 32,
-                          borderRadius: 10,
-                          background: "var(--lake-50)",
-                          color: "var(--lake-700)",
-                          display: "inline-flex",
-                          alignItems: "center",
-                          justifyContent: "center",
+                          width: 7,
+                          height: 7,
+                          borderRadius: 999,
+                          background:
+                            j === 2 ? "var(--lake-400)" : "var(--ink-200)",
+                          display: "inline-block",
                         }}
-                      >
-                        <Icon name={r.icon} size={15} />
-                      </span>
-                      <span
-                        style={{ fontSize: 13.5, color: "var(--text-strong)" }}
-                      >
-                        {r.label}
-                      </span>
-                    </div>
-                    <span
+                      />
+                    ))}
+                  </span>
+                </div>
+                <div style={{ padding: "8px 18px 18px" }}>
+                  {feature.rows.map((r, idx) => (
+                    <div
+                      key={idx}
                       style={{
-                        fontFamily: "var(--font-mono)",
-                        fontSize: 13,
-                        color: "var(--text-body)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "space-between",
+                        padding: "12px 0",
+                        borderBottom:
+                          idx < feature.rows.length - 1
+                            ? "1px solid var(--border-subtle)"
+                            : "none",
                       }}
                     >
-                      {r.value}
-                    </span>
-                  </div>
-                ))}
+                      <div
+                        style={{ display: "flex", alignItems: "center", gap: 11 }}
+                      >
+                        <span
+                          style={{
+                            width: 32,
+                            height: 32,
+                            borderRadius: 10,
+                            background: "var(--lake-50)",
+                            color: "var(--lake-700)",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                          }}
+                        >
+                          <Icon name={r.icon} size={15} />
+                        </span>
+                        <span
+                          style={{ fontSize: 13.5, color: "var(--text-strong)" }}
+                        >
+                          {r.label}
+                        </span>
+                      </div>
+                      <span
+                        style={{
+                          fontFamily: "var(--font-mono)",
+                          fontSize: 13,
+                          color: "var(--text-body)",
+                        }}
+                      >
+                        {r.value}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        ))}
       </section>
 
       {/* ── SECURITY ────────────────────────────────────────────────────── */}
