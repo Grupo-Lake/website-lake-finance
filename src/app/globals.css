@@ -2,6 +2,40 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* Focus indicators — WCAG 2.4.7 */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Override for elements where outline looks wrong */
+button:focus-visible,
+[role="tab"]:focus-visible {
+  outline-offset: 3px;
+}
+
+/* Skip link — WCAG 2.4.1 */
+.skip-link {
+  position: absolute;
+  top: -9999px;
+  left: 8px;
+  padding: 8px 16px;
+  background: var(--brand);
+  color: var(--on-brand);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0 0 6px 6px;
+  z-index: 9999;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
 :root {
   color-scheme: light;
 
@@ -195,4 +229,14 @@ button { font-family: inherit; }
   /* Heading size scaling */
   .lk-h-section { font-size: 26px !important; line-height: 1.15 !important; }
   .lk-h-cta    { font-size: 30px !important; }
+}
+
+/* Reduced motion — WCAG 2.3.3 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
