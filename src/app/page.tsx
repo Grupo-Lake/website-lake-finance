@@ -265,8 +265,8 @@ function MarkLight({ size = 28 }: { size?: number }) {
 const DICT = {
   pt: {
     announce:
-      "Lista de espera aberta — garanta acesso antecipado ao Lake Finance.",
-    announceTag: "NOVO",
+      "Lake Finance está em Versão Beta — garanta seu acesso antecipado gratuitamente.",
+    announceTag: "BETA",
     nav: {
       links: [
         { label: "Problema", href: "#problema" },
@@ -280,15 +280,15 @@ const DICT = {
     },
     hero: {
       eyebrow: "Finanças pessoais com IA",
-      titleA: "Seu consultor financeiro pessoal,",
-      titleEm: "24 horas por dia.",
-      sub: "O Lake Finance usa inteligência artificial para antecipar problemas, sugerir soluções e automatizar a gestão do seu dinheiro.",
-      ctaPrimary: "Baixar grátis",
+      titleA: "Clareza financeira total,",
+      titleEm: "onde quer que esteja.",
+      sub: "O Lake Finance usa inteligência artificial para reunir suas contas, analisar seus gastos e te dar controle real do dinheiro — sem planilha, sem complicação.",
+      ctaPrimary: "Garantir acesso",
       ctaSecondary: "Acessar demo web",
       trust: [
-        "100% seguro · Certificado LGPD",
-        "Mais de 10.000 pessoas confiando",
-        "Integrado com os maiores bancos do Brasil",
+        "100% seguro · Dados protegidos por LGPD",
+        "Versão Beta · Acesso antecipado disponível",
+        "Feito 100% no Brasil",
       ],
     },
     phone: {
@@ -373,7 +373,7 @@ const DICT = {
       eyebrow: "Copiloto",
       title: "Converse com seu copiloto financeiro",
       sub: "Pergunte em linguagem natural e receba respostas com base nas suas transações reais. Experimente:",
-      botName: "Copiloto Lake",
+      botName: "Lakefi",
       online: "Online agora",
       placeholder: "Pergunte algo sobre suas finanças…",
       greeting:
@@ -543,80 +543,76 @@ const DICT = {
     },
     social: {
       eyebrow: "Prova social",
-      title: "Milhares já colocaram o dinheiro no controle",
+      title: "Seja um dos primeiros a controlar seu dinheiro com IA",
       stats: [
-        "usuários ativos",
-        "em transações sincronizadas",
+        "pessoa na equipe",
         "de disponibilidade",
-        "no Google Play",
+        "feito no Brasil",
+        "fundada em",
       ],
       testimonials: [
         {
           quote:
-            "Descobri R$ 800/mês que eu nem via. O Lake sugeriu cortes inteligentes sem impactar minha qualidade de vida.",
-          name: "Ana P.",
-          role: "Consultora",
-          initials: "AP",
+            "Em breve: depoimentos dos nossos primeiros usuários do Lake Finance Beta.",
+          name: "Versão Beta",
+          role: "Acesso antecipado disponível",
+          initials: "β",
         },
         {
           quote:
-            "Pela primeira vez sei exatamente para onde meu dinheiro vai. O copiloto responde em segundos.",
-          name: "Bruno M.",
-          role: "Designer",
-          initials: "BM",
+            "Estamos construindo o Lake Finance com foco total na experiência do usuário. Em breve teremos depoimentos reais.",
+          name: "Equipe Lake",
+          role: "São Paulo, Brasil",
+          initials: "JL",
         },
         {
           quote:
-            "A previsão de saldo me salvou de duas multas por saldo negativo. Vale cada centavo.",
-          name: "Carla R.",
-          role: "Médica",
-          initials: "CR",
+            "Seja um dos primeiros a usar o Lake Finance e influencie diretamente o produto que estamos construindo.",
+          name: "Jefferson Laurindo",
+          role: "CEO & Founder",
+          initials: "JL",
         },
       ],
     },
     pricing: {
       eyebrow: "Planos",
       title: "Planos para cada momento",
-      popular: "Mais popular",
+      popular: "Versão Beta",
       plans: [
         {
-          name: "Free",
+          name: "Beta",
           price: "R$ 0",
           period: "/mês",
-          featured: false,
-          cta: "Começar grátis",
+          featured: true,
+          cta: "Garantir acesso",
           features: [
-            "Sincronização de 1 banco",
-            "Categorização automática",
-            "Health Score básico",
-            "Copiloto com limite diário",
+            "Acesso antecipado ao Beta",
+            "Categorização automática com IA",
+            "Health Score financeiro",
+            "Copiloto Lakefi",
+            "Feedback direto com o fundador",
           ],
         },
         {
           name: "Pro",
-          price: "R$ 29,90",
-          period: "/mês",
-          featured: true,
-          cta: "Assinar o Pro",
+          price: "Em breve",
+          period: "",
+          featured: false,
+          cta: "Em breve",
           features: [
-            "Sincronização ilimitada",
-            "Copiloto com IA sem limite",
-            "Alertas e previsões avançadas",
-            "Relatórios em PDF",
-            "Metas ilimitadas",
+            "Em desenvolvimento",
+            "Disponível em breve após o Beta",
           ],
         },
         {
-          name: "Family",
-          price: "R$ 49,90",
-          period: "/mês",
+          name: "Família",
+          price: "Em breve",
+          period: "",
           featured: false,
-          cta: "Falar com vendas",
+          cta: "Em breve",
           features: [
-            "Tudo do Pro",
-            "Até 5 perfis",
-            "Orçamento compartilhado",
-            "Suporte prioritário",
+            "Em desenvolvimento",
+            "Disponível em breve após o Beta",
           ],
         },
       ],
@@ -635,7 +631,7 @@ const DICT = {
         },
         {
           q: "Quanto custa?",
-          a: "Há uma versão gratuita para sempre com 1 banco conectado. O plano Pro sai por R$ 29,90/mês com todas as funcionalidades ilimitadas.",
+          a: "O Lake Finance está em versão beta gratuita. O acesso antecipado é completamente grátis. Planos pagos serão anunciados em breve após o lançamento oficial.",
         },
         {
           q: "O que é o Health Score?",
@@ -652,16 +648,16 @@ const DICT = {
       ],
     },
     cta: {
-      titleA: "Transforme sua relação",
-      titleEm: "com o dinheiro.",
-      sub: "Junte-se a milhares de brasileiros que já estão no controle das suas finanças com o Lake.",
-      ctaPrimary: "Baixar grátis",
+      titleA: "Comece a controlar",
+      titleEm: "seu dinheiro hoje.",
+      sub: "Garanta seu acesso antecipado ao Lake Finance Beta e seja um dos primeiros a usar a IA financeira do futuro.",
+      ctaPrimary: "Garantir acesso",
       ctaSecondary: "Ver demonstração",
     },
     footer: {
       legal:
-        "Lake Finance Tecnologia Ltda. · CNPJ 00.000.000/0001-00 · Sujeito às regras do Open Finance Brasil.",
-      copyright: "© 2025 Lake Finance",
+        "Lake Tecnologia · CNPJ 57.924.952/0001-19 · Sujeito às regras do Open Finance Brasil.",
+      copyright: "© 2024 Lake Finance",
       tag: "BUILD WITH ♥ NO BRASIL",
       cols: [
         {
@@ -696,8 +692,8 @@ const DICT = {
   },
 
   en: {
-    announce: "Waitlist open — secure early access to Lake Finance.",
-    announceTag: "NEW",
+    announce: "Lake Finance is in Beta — get early access for free.",
+    announceTag: "BETA",
     nav: {
       links: [
         { label: "Problem", href: "#problema" },
@@ -711,15 +707,15 @@ const DICT = {
     },
     hero: {
       eyebrow: "AI-powered personal finance",
-      titleA: "Your personal financial advisor,",
-      titleEm: "24 hours a day.",
-      sub: "Lake Finance uses artificial intelligence to anticipate problems, suggest solutions, and automate your money management.",
-      ctaPrimary: "Download free",
+      titleA: "Total financial clarity,",
+      titleEm: "wherever you are.",
+      sub: "Lake Finance uses AI to connect your accounts, analyze your spending, and give you real control of your money — no spreadsheets, no complexity.",
+      ctaPrimary: "Get early access",
       ctaSecondary: "Try web demo",
       trust: [
         "100% secure · LGPD certified",
-        "Over 10,000 people trusting us",
-        "Integrated with the largest Brazilian banks",
+        "Beta version · Early access available",
+        "100% made in Brazil",
       ],
     },
     phone: {
@@ -804,7 +800,7 @@ const DICT = {
       eyebrow: "Copilot",
       title: "Chat with your financial copilot",
       sub: "Ask in natural language and get answers based on your real transactions. Try it:",
-      botName: "Lake Copilot",
+      botName: "Lakefi",
       online: "Online now",
       placeholder: "Ask something about your finances…",
       greeting:
@@ -970,80 +966,76 @@ const DICT = {
     },
     social: {
       eyebrow: "Social proof",
-      title: "Thousands have already taken control of their money",
+      title: "Be among the first to control your money with AI",
       stats: [
-        "active users",
-        "in synced transactions",
+        "team member",
         "uptime",
-        "on Google Play",
+        "made in Brazil",
+        "founded in",
       ],
       testimonials: [
         {
           quote:
-            "I found R$ 800/month I didn't even see. Lake suggested smart cuts without impacting my quality of life.",
-          name: "Ana P.",
-          role: "Consultant",
-          initials: "AP",
+            "Coming soon: testimonials from our first Lake Finance Beta users.",
+          name: "Beta Version",
+          role: "Early access available",
+          initials: "β",
         },
         {
           quote:
-            "For the first time I know exactly where my money goes. The copilot responds in seconds.",
-          name: "Bruno M.",
-          role: "Designer",
-          initials: "BM",
+            "We're building Lake Finance with a total focus on user experience. Real testimonials coming soon.",
+          name: "Lake Team",
+          role: "São Paulo, Brazil",
+          initials: "JL",
         },
         {
           quote:
-            "The balance forecast saved me from two overdraft fees. Worth every penny.",
-          name: "Carla R.",
-          role: "Doctor",
-          initials: "CR",
+            "Be one of the first to use Lake Finance and directly influence the product we're building.",
+          name: "Jefferson Laurindo",
+          role: "CEO & Founder",
+          initials: "JL",
         },
       ],
     },
     pricing: {
       eyebrow: "Plans",
       title: "Plans for every stage",
-      popular: "Most popular",
+      popular: "Beta Version",
       plans: [
         {
-          name: "Free",
+          name: "Beta",
           price: "R$ 0",
           period: "/mo",
-          featured: false,
-          cta: "Start free",
+          featured: true,
+          cta: "Get early access",
           features: [
-            "Sync 1 bank",
-            "Automatic categorization",
-            "Basic Health Score",
-            "Copilot with daily limit",
+            "Early access to Beta",
+            "AI-powered auto-categorization",
+            "Financial Health Score",
+            "Lakefi copilot",
+            "Direct feedback with the founder",
           ],
         },
         {
           name: "Pro",
-          price: "R$ 29.90",
-          period: "/mo",
-          featured: true,
-          cta: "Get Pro",
+          price: "Coming soon",
+          period: "",
+          featured: false,
+          cta: "Coming soon",
           features: [
-            "Unlimited sync",
-            "Unlimited AI Copilot",
-            "Advanced alerts & forecasts",
-            "PDF reports",
-            "Unlimited goals",
+            "In development",
+            "Available soon after Beta",
           ],
         },
         {
           name: "Family",
-          price: "R$ 49.90",
-          period: "/mo",
+          price: "Coming soon",
+          period: "",
           featured: false,
-          cta: "Talk to sales",
+          cta: "Coming soon",
           features: [
-            "Everything in Pro",
-            "Up to 5 profiles",
-            "Shared budget",
-            "Priority support",
+            "In development",
+            "Available soon after Beta",
           ],
         },
       ],
@@ -1062,7 +1054,7 @@ const DICT = {
         },
         {
           q: "How much does it cost?",
-          a: "There's a free forever plan with 1 connected bank. The Pro plan is R$ 29.90/month with all features unlimited.",
+          a: "Lake Finance is in free beta. Early access is completely free. Paid plans will be announced soon after the official launch.",
         },
         {
           q: "What is the Health Score?",
@@ -1079,16 +1071,16 @@ const DICT = {
       ],
     },
     cta: {
-      titleA: "Transform your relationship",
-      titleEm: "with money.",
-      sub: "Join thousands of Brazilians who are already in control of their finances with Lake.",
-      ctaPrimary: "Download free",
+      titleA: "Start taking control",
+      titleEm: "of your money today.",
+      sub: "Get early access to Lake Finance Beta and be among the first to use the financial AI of the future.",
+      ctaPrimary: "Get early access",
       ctaSecondary: "See demo",
     },
     footer: {
       legal:
-        "Lake Finance Technology Ltd. · Registered company · Subject to Open Finance Brazil rules.",
-      copyright: "© 2025 Lake Finance",
+        "Lake Finance Technology · CNPJ 57.924.952/0001-19 · Subject to Open Finance Brazil rules.",
+      copyright: "© 2024 Lake Finance",
       tag: "BUILT WITH ♥ IN BRAZIL",
       cols: [
         {
@@ -1126,10 +1118,10 @@ const DICT = {
 // ─── Stats ────────────────────────────────────────────────────────────────────
 
 const STATS_META = [
-  { prefix: "", decimals: 0, suffix: "+", group: true },
-  { prefix: "R$ ", decimals: 0, suffix: "M+", group: false },
+  { prefix: "", decimals: 0, suffix: "", group: false },
   { prefix: "", decimals: 1, suffix: "%", group: false },
-  { prefix: "", decimals: 1, suffix: " ★", group: false },
+  { prefix: "", decimals: 0, suffix: "%", group: false },
+  { prefix: "", decimals: 0, suffix: "", group: false },
 ];
 
 function fmtStat(val: number, m: (typeof STATS_META)[number], lang: Lang) {
@@ -1169,7 +1161,7 @@ export default function Page() {
   const animateStats = useCallback(() => {
     if (statsDone.current) return;
     statsDone.current = true;
-    const targets = [10000, 50, 99.9, 4.8];
+    const targets = [1, 99.9, 100, 2024];
     const dur = 1500,
       t0 = performance.now();
     const step = (now: number) => {

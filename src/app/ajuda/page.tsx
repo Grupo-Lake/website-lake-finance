@@ -40,8 +40,8 @@ const DICT = {
       {
         icon: "✉️",
         title: "E-mail",
-        desc: "suporte@lakefi.com.br",
-        note: "Respondemos em até 24h",
+        desc: "jeffersonlds3009@gmail.com",
+        note: "Respondemos em até 1h",
         cta: "Enviar e-mail",
         primary: false,
       },
@@ -81,8 +81,8 @@ const DICT = {
       {
         icon: "✉️",
         title: "Email",
-        desc: "suporte@lakefi.com.br",
-        note: "We respond within 24 hours",
+        desc: "jeffersonlds3009@gmail.com",
+        note: "We respond within 1 hour",
         cta: "Send email",
         primary: false,
       },

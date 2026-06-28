@@ -23,9 +23,9 @@ const DICT = {
     success: { title: "Mensagem enviada!", desc: "Nossa equipe responderá em até 24h úteis." },
     infoLabel: "Canais de contato",
     contacts: [
-      { title: "Suporte geral", email: "suporte@lakefi.com.br", desc: "Para dúvidas sobre o app e a conta" },
-      { title: "Imprensa", email: "imprensa@lakefi.com.br", desc: "Para jornalistas e criadores de conteúdo" },
-      { title: "Proteção de dados (DPO)", email: "dpo@lakefi.com.br", desc: "Para solicitações relacionadas aos seus dados" },
+      { title: "Suporte geral", email: "jeffersonlds3009@gmail.com", desc: "Para dúvidas sobre o app e a conta" },
+      { title: "Imprensa", email: "jeffersonlds3009@gmail.com", desc: "Para jornalistas e criadores de conteúdo" },
+      { title: "Proteção de dados (DPO)", email: "jeffersonlds3009@gmail.com", desc: "Para solicitações relacionadas aos seus dados" },
     ],
     responseTime: "Respondemos em até 24h úteis",
     helpHint: "Antes de entrar em contato, veja se sua dúvida já está respondida na",
@@ -47,9 +47,9 @@ const DICT = {
     success: { title: "Message sent!", desc: "Our team will respond within 24 business hours." },
     infoLabel: "Contact channels",
     contacts: [
-      { title: "General support", email: "suporte@lakefi.com.br", desc: "For questions about the app and your account" },
-      { title: "Press", email: "imprensa@lakefi.com.br", desc: "For journalists and content creators" },
-      { title: "Data protection (DPO)", email: "dpo@lakefi.com.br", desc: "For requests related to your personal data" },
+      { title: "General support", email: "jeffersonlds3009@gmail.com", desc: "For questions about the app and your account" },
+      { title: "Press", email: "jeffersonlds3009@gmail.com", desc: "For journalists and content creators" },
+      { title: "Data protection (DPO)", email: "jeffersonlds3009@gmail.com", desc: "For requests related to your personal data" },
     ],
     responseTime: "We respond within 24 business hours",
     helpHint: "Before reaching out, check if your question is already answered in the",
@@ -177,8 +177,12 @@ export default function ContatoPage() {
               </div>
 
               <div style={{ display: "flex", gap: 10, marginTop: 8 }}>
-                {([IcoLinkedin, IcoInstagram, IcoTwitter] as const).map((Ico, i) => (
-                  <a key={i} href="#" aria-label="Social" style={{ width: 40, height: 40, borderRadius: 12, border: "1.5px solid var(--border-default)", background: "var(--surface-card)", display: "inline-flex", alignItems: "center", justifyContent: "center", color: "var(--text-muted)", textDecoration: "none" }}>
+                {[
+                  { Ico: IcoLinkedin, href: "#", label: "LinkedIn" },
+                  { Ico: IcoInstagram, href: "https://www.instagram.com/grupo.lake", label: "Instagram" },
+                  { Ico: IcoTwitter, href: "#", label: "X" },
+                ].map(({ Ico, href, label }) => (
+                  <a key={label} href={href} aria-label={label} style={{ width: 40, height: 40, borderRadius: 12, border: "1.5px solid var(--border-default)", background: "var(--surface-card)", display: "inline-flex", alignItems: "center", justifyContent: "center", color: "var(--text-muted)", textDecoration: "none" }}>
                     <Ico />
                   </a>
                 ))}
