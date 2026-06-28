@@ -140,22 +140,22 @@ export default function ContatoPage() {
             ) : (
               <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: 16 }}>
                 <div>
-                  <label style={{ display: "block", fontSize: 13.5, fontWeight: 600, color: "var(--text-body)", marginBottom: 6 }}>{t.fields.name}</label>
-                  <input type="text" required value={name} onChange={e => setName(e.target.value)} style={inputStyle} />
+                  <label htmlFor="field-name" style={{ display: "block", fontSize: 13.5, fontWeight: 600, color: "var(--text-body)", marginBottom: 6 }}>{t.fields.name}</label>
+                  <input id="field-name" type="text" required value={name} onChange={e => setName(e.target.value)} style={inputStyle} aria-required="true" />
                 </div>
                 <div>
-                  <label style={{ display: "block", fontSize: 13.5, fontWeight: 600, color: "var(--text-body)", marginBottom: 6 }}>{t.fields.email}</label>
-                  <input type="email" required value={email} onChange={e => setEmail(e.target.value)} style={inputStyle} />
+                  <label htmlFor="field-email" style={{ display: "block", fontSize: 13.5, fontWeight: 600, color: "var(--text-body)", marginBottom: 6 }}>{t.fields.email}</label>
+                  <input id="field-email" type="email" required value={email} onChange={e => setEmail(e.target.value)} style={inputStyle} aria-required="true" />
                 </div>
                 <div>
-                  <label style={{ display: "block", fontSize: 13.5, fontWeight: 600, color: "var(--text-body)", marginBottom: 6 }}>{t.fields.subject}</label>
-                  <select value={subject} onChange={e => setSubject(e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}>
+                  <label htmlFor="field-subject" style={{ display: "block", fontSize: 13.5, fontWeight: 600, color: "var(--text-body)", marginBottom: 6 }}>{t.fields.subject}</label>
+                  <select id="field-subject" value={subject} onChange={e => setSubject(e.target.value)} style={{ ...inputStyle, cursor: "pointer" }}>
                     {t.subjects.map((s, i) => <option key={i} value={String(i)}>{s}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label style={{ display: "block", fontSize: 13.5, fontWeight: 600, color: "var(--text-body)", marginBottom: 6 }}>{t.fields.message}</label>
-                  <textarea required rows={5} value={message} onChange={e => setMessage(e.target.value)} style={{ ...inputStyle, resize: "vertical", lineHeight: 1.6 }} />
+                  <label htmlFor="field-message" style={{ display: "block", fontSize: 13.5, fontWeight: 600, color: "var(--text-body)", marginBottom: 6 }}>{t.fields.message}</label>
+                  <textarea id="field-message" required rows={5} value={message} onChange={e => setMessage(e.target.value)} style={{ ...inputStyle, resize: "vertical", lineHeight: 1.6 }} aria-required="true" />
                 </div>
                 <button type="submit" style={{ width: "100%", padding: "14px", borderRadius: 999, background: "var(--brand)", color: "var(--on-brand)", fontFamily: "var(--font-sans)", fontWeight: 600, fontSize: 15, border: "none", cursor: "pointer" }}>
                   {t.fields.submit}
