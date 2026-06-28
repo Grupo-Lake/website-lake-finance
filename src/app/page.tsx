@@ -3520,6 +3520,9 @@ export default function Page() {
                 }}
               >
                 <button
+                  id={`faq-question-${i}`}
+                  aria-expanded={open ? "true" : "false"}
+                  aria-controls={`faq-answer-${i}`}
                   onClick={() => setOpenFaq(open ? -1 : i)}
                   style={{
                     width: "100%",
@@ -3562,18 +3565,21 @@ export default function Page() {
                     <Plus size={18} />
                   </span>
                 </button>
-                {open && (
-                  <div
-                    style={{
-                      padding: "0 22px 22px",
-                      fontSize: 15,
-                      lineHeight: 1.6,
-                      color: "var(--text-body)",
-                    }}
-                  >
-                    {item.a}
-                  </div>
-                )}
+                <div
+                  id={`faq-answer-${i}`}
+                  role="region"
+                  aria-labelledby={`faq-question-${i}`}
+                  hidden={!open}
+                  style={{
+                    padding: open ? "0 22px 22px" : "0 22px 22px",
+                    fontSize: 15,
+                    lineHeight: 1.6,
+                    color: "var(--text-body)",
+                    display: open ? "block" : "none",
+                  }}
+                >
+                  {item.a}
+                </div>
               </div>
             );
           })}
