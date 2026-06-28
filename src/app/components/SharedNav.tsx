@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 type Lang = "pt" | "en";
@@ -66,6 +66,18 @@ interface SharedNavProps {
 export default function SharedNav({ lang, setLang }: SharedNavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const t = NAV[lang];
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        document.querySelector<HTMLButtonElement>('[aria-label="Open menu"]')?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
 
   return (
     <>

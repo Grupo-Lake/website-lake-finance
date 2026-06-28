@@ -1197,6 +1197,18 @@ export default function Page() {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
   }, [chat]);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setMenuOpen(false);
+        document.querySelector<HTMLButtonElement>('[aria-label="Abrir menu"]')?.focus();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
+
   const greeting = t.copilot.greeting;
   const fallback = t.copilot.fallback;
 
